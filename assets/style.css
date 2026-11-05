@@ -152,6 +152,11 @@ form { display: grid; gap: 18px; min-width: 0; }
   .brand span { font-size: 1.05rem; }
   .nav-cta { padding: 8px 12px; font-size: .88rem; }
 }
+@media (max-width: 360px) {
+  .brand { gap: 8px; white-space: normal; line-height: 1.05; }
+  .brand span { font-size: .92rem; }
+  .brand-mark { height: 34px; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }

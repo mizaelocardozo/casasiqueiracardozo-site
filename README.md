@@ -1,4 +1,4 @@
-# Site da Casa Siqueira
+# Site da Casa Siqueira Cardozo
 
 Site estático de uma página, com sede indicada em Brasília-DF. Não precisa de build nem de servidor próprio.
 
