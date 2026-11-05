@@ -1,0 +1,158 @@
+@font-face {
+  font-family: "Bricolage";
+  src: url("fonts/bricolage.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument";
+  src: url("fonts/instrument-sans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --fundo: #28106F;
+  --fundo-2: #170B3D;
+  --claro: #FFFFFF;
+  --magenta: #AD0F59;
+  --amarelo: #FFC400;
+  --tinta: #170B3D;
+  --tinta-2: #524A75;
+  --gutter: clamp(16px, 4vw, 56px);
+  --display: "Bricolage", "Arial Narrow", system-ui, sans-serif;
+  --body: "Instrument", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  background: var(--claro);
+  color: var(--tinta);
+  font: 400 clamp(1rem, .96rem + .2vw, 1.125rem)/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); letter-spacing: -.025em; text-wrap: balance; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+.skip {
+  position: absolute; left: 16px; top: -60px; z-index: 30;
+  background: var(--amarelo); color: var(--tinta); padding: 10px 16px;
+}
+.skip:focus { top: 12px; }
+
+/* Topo */
+.top {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px var(--gutter);
+  background: var(--fundo-2); color: var(--claro);
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 700 1.2rem/1 var(--display); letter-spacing: -.02em; text-decoration: none; white-space: nowrap;
+}
+.brand-mark { display: block; width: auto; height: 40px; flex: none; }
+.nav-cta {
+  background: var(--amarelo); color: var(--tinta); padding: 9px 16px;
+  font-size: .96rem; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .15s;
+}
+.nav-cta:hover { background: var(--claro); }
+
+/* Botões */
+.btn {
+  display: inline-block; appearance: none; border: 0; cursor: pointer; text-decoration: none;
+  font: 600 1.05rem/1 var(--body);
+  background: var(--amarelo); color: var(--tinta); padding: 16px 22px; transition: background .15s;
+}
+.btn:hover { background: var(--claro); }
+.btn-alt { background: var(--claro); }
+.btn-alt:hover { background: var(--amarelo); }
+
+/* Hero */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  min-height: min(680px, calc(100svh - 64px));
+  background: var(--fundo); color: var(--claro);
+}
+.hero-copy {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  padding: clamp(40px, 5vw, 72px) var(--gutter); min-width: 0;
+}
+.eyebrow { font-weight: 600; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--amarelo); margin-bottom: 18px; }
+h1 { font-size: clamp(2.7rem, 1.2rem + 4.2vw, 5.6rem); line-height: .98; font-weight: 800; letter-spacing: -.035em; }
+.lede { margin: clamp(20px, 2.5vw, 28px) 0 clamp(26px, 3vw, 36px); max-width: 40ch; font-size: clamp(1.08rem, 1rem + .4vw, 1.3rem); line-height: 1.45; }
+
+/* Azulejos */
+.wall {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-content: start;
+  overflow: hidden; min-width: 0; contain: size;
+}
+.tile { display: block; width: 100%; aspect-ratio: 1; transition: transform .5s cubic-bezier(.3,1.3,.5,1); }
+.tile svg { display: block; width: 100%; height: 100%; }
+
+/* O que fazemos */
+.fazemos {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 64px);
+  padding: clamp(44px, 6vw, 80px) var(--gutter);
+}
+.item { border-top: 3px solid var(--tinta); padding-top: 16px; }
+.item h3 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.2rem); font-weight: 700; color: var(--fundo); margin-bottom: 6px; }
+.item p { color: var(--tinta-2); line-height: 1.45; }
+
+/* Contato */
+.contato {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 96px);
+  padding: clamp(48px, 7vw, 96px) var(--gutter);
+  background: var(--fundo); color: var(--claro);
+}
+.contato-intro h2 { font-size: clamp(2.1rem, 1.3rem + 3.2vw, 4.2rem); line-height: 1.02; font-weight: 700; margin-bottom: 16px; }
+.direct { margin-top: 20px; font-size: .96rem; }
+.direct a { font-weight: 600; overflow-wrap: anywhere; }
+form { display: grid; gap: 18px; min-width: 0; }
+.field label { display: block; font-weight: 600; margin-bottom: 6px; }
+.field input, .field textarea {
+  width: 100%; padding: 13px 14px; font: inherit; color: var(--tinta);
+  background: var(--claro); border: 2px solid var(--claro); border-radius: 0;
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.field [aria-invalid="true"] { border-color: var(--amarelo); box-shadow: 0 0 0 2px var(--amarelo); }
+.error { color: var(--amarelo); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.note { font-size: .88rem; }
+
+/* Rodapé */
+.foot {
+  display: flex; align-items: center; gap: 16px;
+  padding: 28px var(--gutter); background: var(--fundo-2); color: var(--claro); font-size: .92rem; line-height: 1.5;
+}
+.foot-logo { display: block; width: auto; height: 50px; flex: none; }
+
+/* Responsivo */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .wall { grid-template-columns: repeat(6, minmax(0, 1fr)); contain: none; }
+  .wall .tile:nth-child(n + 13) { display: none; }
+  .contato { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .fazemos { grid-template-columns: 1fr; }
+}
+@media (max-width: 460px) {
+  .brand span { font-size: 1.05rem; }
+  .nav-cta { padding: 8px 12px; font-size: .88rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

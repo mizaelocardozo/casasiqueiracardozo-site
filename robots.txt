@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://casasiqueiracardozo.com.br/sitemap.xml
